@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data;
 using System.Collections.Generic;
 using InterfaceActivityBuilder.Base;
+using ExcelDataReader;
 
 namespace InterfaceActivityBuilder.Excel
 {
@@ -57,20 +58,20 @@ namespace InterfaceActivityBuilder.Excel
         private DataTable ReadExcelToTable(string path)
         {
             DataSet result = null;
-            //using (var stream = File.Open(path, FileMode.Open, FileAccess.Read))
-            //{
-            //    using (var reader = ExcelReaderFactory.CreateReader(stream))
-            //    {
-            //        do
-            //        {
-            //            while (reader.Read())
-            //            {
-            //            }
-            //        } while (reader.NextResult());
+            using (var stream = File.Open(path, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    do
+                    {
+                        while (reader.Read())
+                        {
+                        }
+                    } while (reader.NextResult());
 
-            //        result = reader.AsDataSet();
-            //    }
-            //}
+                    result = reader.AsDataSet();
+                }
+            }
             return result.Tables[0];
         }
 

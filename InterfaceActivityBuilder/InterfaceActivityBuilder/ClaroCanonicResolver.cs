@@ -19,15 +19,15 @@ namespace InterfaceActivityBuilder
 
         public override void Resolve()
         {
-            //var canonicList = _excelReader.Read(_excelPath);
+            var canonicList = _excelReader.Read(_excelPath);
 
-            //_treeBuilder = new TreeBuilder(canonicList);
-            //_treeBuilder.Build();
+            _treeBuilder = new TreeBuilder(canonicList);
+            _treeBuilder.Build();
 
-            //_codePad = new CodePad(_treeBuilder.CanonicTree);
-            //_codePad.Write();
+            _codePad = new CodePad(_treeBuilder.CanonicTree);
+            _codePad.Write();
 
-            //var activityCode = _codePad.Code;
+            var activityCode = _codePad.Code;
         }        
     }
 }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using InterfaceActivityBuilder.Base;
 
 namespace InterfaceActivityBuilder.Tree
 {
     interface ITreeBuilder
     {
         void Build();
-        //TreeNode<CanonicTreeItem> CanonicTree { get; }
+        TreeNode<CanonicTreeItem> CanonicTree { get; }
     }
 }

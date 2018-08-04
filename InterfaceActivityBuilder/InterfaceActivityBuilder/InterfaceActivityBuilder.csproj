@@ -32,8 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.4.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.4.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +51,10 @@
   <ItemGroup>
     <Compile Include="Base\AttributeCanonicItem.cs" />
     <Compile Include="Base\CanonicItem.cs" />
+    <Compile Include="Base\ReflectionHelper.cs" />
     <Compile Include="CanonicResolverBase.cs" />
     <Compile Include="ClaroCanonicResolver.cs" />
+    <Compile Include="Code\CodePad.cs" />
     <Compile Include="Code\ICodePad.cs" />
     <Compile Include="Excel\IInterfaceExcelReader.cs" />
     <Compile Include="Excel\InterfaceExcelReader.cs" />
@@ -53,11 +62,14 @@
     <Compile Include="ICanonicResolver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tree\CanonicTreeItem.cs" />
+    <Compile Include="Base\CanonicTreeItem.cs" />
     <Compile Include="Tree\ITreeBuilder.cs" />
+    <Compile Include="Tree\TreeBuilder.cs" />
+    <Compile Include="Tree\TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
