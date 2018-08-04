@@ -42,8 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\AttributeCanonicItem.cs" />
+    <Compile Include="Base\CanonicItem.cs" />
+    <Compile Include="CanonicResolverBase.cs" />
+    <Compile Include="ClaroCanonicResolver.cs" />
+    <Compile Include="Code\ICodePad.cs" />
+    <Compile Include="Excel\IInterfaceExcelReader.cs" />
+    <Compile Include="Excel\InterfaceExcelReader.cs" />
+    <Compile Include="Excel\InterfaceExcelReaderBase.cs" />
+    <Compile Include="ICanonicResolver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree\CanonicTreeItem.cs" />
+    <Compile Include="Tree\ITreeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
