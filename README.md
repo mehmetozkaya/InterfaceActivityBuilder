@@ -90,7 +90,7 @@ The given assembly path configuration dll should be exist proxy native classes w
 ...	
 ```
 
-# Background of InterfaceActivityBuilder
+## Background of InterfaceActivityBuilder
 
 There are 3 module to evaluate canonic messages and convert to generated c# code.
 
@@ -98,7 +98,7 @@ There are 3 module to evaluate canonic messages and convert to generated c# code
 * Tree Builder - It reads the line list and translates it into Tree structure, translating the canonic string into tree structure. Special cases like Attributes added 2 times in tree as expected.
 * CodePad - This module iterate the Tree and recursively generate the code and do it as a file.
 
-# Next Releases
+## Next Releases
 
 This program only generated request part of mapping activities with proxy classes. And this program only solve spesific problem of customer requirements. So it will evolve a product and extent with new features as listed below;
 
