@@ -65,5 +65,7 @@ namespace InterfaceActivityBuilder.Tree
                 AddChildToTree(foundNode, canonic);
             }
         }
+
+        // https://stackoverflow.com/questions/33772893/how-to-use-recursion-to-parse-text-into-a-tree-structure
     }
 }

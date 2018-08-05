@@ -16,8 +16,7 @@ namespace InterfaceActivityBuilder.Code
         {
             _canonicTree = canonicTree;
             _code = new StringBuilder();
-
-            //TODO : Build class first part
+            
             BuildActivityClass();
         }
 
@@ -72,6 +71,13 @@ namespace InterfaceActivityBuilder.Code
         }
 
         public void Write()
+        {
+            GenerateFromTree();
+            CloseActivityRequestMethod();
+            DownloadFile();
+        }
+
+        private void GenerateFromTree()
         {
             foreach (var node in _canonicTree)
             {
@@ -140,10 +146,8 @@ namespace InterfaceActivityBuilder.Code
                 AddTabs(node.Level);
                 _code.AppendLine("{");
             }
-
-            CloseActivityRequestMethod();
-            DownloadFile();
         }
+
         private void DownloadFile()
         {
             var rootName = _canonicTree.Data.NodeName;
@@ -154,9 +158,16 @@ namespace InterfaceActivityBuilder.Code
 
             try
             {
-                StreamWriter sw = new StreamWriter($"C:\\{className}.cs");
+                string currentDirectory = Directory.GetCurrentDirectory();
+                StreamWriter sw = new StreamWriter($"{currentDirectory}\\{className}.cs");
                 sw.WriteLine(_code);
                 sw.Close();
+
+                /////////////////TODO : Move Program.cs
+                Console.WriteLine();
+                Console.WriteLine($"SUCCESS : {className}.cs successfully created in this folder location : {currentDirectory}.");
+                Console.WriteLine();
+                /////////////////TODO : Move Program.cs
             }
             catch (Exception e)
             {
