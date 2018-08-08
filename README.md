@@ -19,7 +19,13 @@ Example usage of exe;
 InterfaceActivityBuilder.exe C:\Users\ezozkme\Desktop\Book2.xlsx
 ```
 
-Or you can directly run exe file and pass path parameter in Console Aplication.
+Or if excel file is in the same path of exe;
+
+```
+InterfaceActivityBuilder.exe Book2.xlsx
+```
+
+Also you can directly run exe file and pass path parameter in Console Aplication.
 
 ### Success of Program
 
