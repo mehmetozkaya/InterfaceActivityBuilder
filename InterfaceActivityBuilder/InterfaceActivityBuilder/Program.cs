@@ -17,7 +17,10 @@ namespace InterfaceActivityBuilder
                 {
                     ConsoleException(exception);
                 }
-                args = null;                
+                finally
+                {
+                    args = null;
+                }
             }
         }
 
@@ -33,7 +36,7 @@ namespace InterfaceActivityBuilder
             string path = string.Empty;
             if (args != null && args.Length > 0)
             {
-                path = args[0];
+                path = args[0];                
             }
             else
             {

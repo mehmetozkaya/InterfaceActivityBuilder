@@ -282,66 +282,6 @@ namespace InterfaceActivityBuilder.Code
 
         private const string AttributeKeyword = "_attributeName";
         private const string ArrayItemKeyword = "arrayItem";
-        private const string ArrayItem_1_Keyword = "arrayItem1";
-
-
-        ///////////////////////// ///////////////////////// ///////////////////////// ///////////////////////// /////////////////////////
-        // Remove this part
-        public void WriteRemove()
-        {
-            foreach (var node in _canonicTree.Where(p => p.Level == 1))
-            {
-                _code.AppendLine($"requestMessage.{node.Data.NodeName} = new {node.Data.NodeType}");
-                _code.AppendLine("{");
-                _code.AppendLine(PrepareTreeNodes(node));
-                _code.AppendLine("};");
-                continue;
-            }
-        }
-        private string PrepareTreeNodes(TreeNode<CanonicTreeItem> node)
-        {
-            var itemCode = new StringBuilder();
-
-            foreach (var child in node.Children)
-            {
-                if (child.IsLeaf)
-                {
-                    AddTabs2(child.Level, itemCode);
-                    itemCode.AppendLine($"{child.Data.NodeName} = requestDTO.{child.Data.CanonicName}");
-                    PutPunctiation2(child.Level, itemCode);
-                    continue;
-                }
-
-                AddTabs2(child.Level, itemCode);
-                itemCode.AppendLine($"{node.Data.NodeName} = new {node.Data.NodeType}");
-                AddTabs2(child.Level, itemCode);
-                itemCode.AppendLine("{");
-                AddTabs2(child.Level, itemCode);
-                itemCode.AppendLine(PrepareTreeNodes(child));
-                AddTabs2(child.Level, itemCode);
-                itemCode.AppendLine("}");
-            }
-            return itemCode.ToString();
-        }
-        private void AddTabs2(int level, StringBuilder item)
-        {
-            for (int i = 0; i < level - 1; i++)
-            {
-                item.Append("\t");
-            }
-        }
-        private void PutPunctiation2(int level, StringBuilder item)
-        {
-            var IslastBracket = level - 1 == 1;
-            var punctiation = string.Empty;
-            if (IslastBracket)
-                return; // punctiation = ";";
-            else
-                punctiation = ",";
-
-            item.Insert(item.ToString().Trim().Length, punctiation);
-        }
-
-        ///////////////////////// ///////////////////////// ///////////////////////// ///////////////////////// /////////////////////////
+        private const string ArrayItem_1_Keyword = "arrayItem1";      
     }
 }
