@@ -12,6 +12,8 @@ namespace InterfaceActivityBuilder
                 try
                 {
                     ResolveMessage(args);
+                    ConsoleWait();
+                    break;
                 }
                 catch (Exception exception)
                 {
@@ -22,7 +24,7 @@ namespace InterfaceActivityBuilder
                     args = null;
                 }
             }
-        }
+        }        
 
         private static void ResolveMessage(string[] args)
         {
@@ -67,6 +69,11 @@ namespace InterfaceActivityBuilder
             Console.WriteLine();
             Console.WriteLine(exception.Message);
             Console.WriteLine();
+        }
+
+        private static void ConsoleWait()
+        {
+            Console.Read();
         }
     }
 }
