@@ -55,7 +55,7 @@ namespace InterfaceActivityBuilder.Code
 
             _code.Append("\t");
             _code.Append("\t");
-            _code.AppendLine($"public override {requestClassName} CreateRequest()");
+            _code.AppendLine($"public override {nativeName}Request CreateRequest()");
             _code.Append("\t");
             _code.Append("\t");
             _code.AppendLine("{");
@@ -86,9 +86,19 @@ namespace InterfaceActivityBuilder.Code
 
                 if (node.Level == 1)
                 {
-                    _code.AppendLine($"requestMessage.{node.Data.NodeName} = new {node.Data.NodeType}");
-                    _code.AppendLine("{");
-                    continue;
+                    if (node.Data.NodeType.IsArray)
+                    {
+                        string value = string.Format("requestMessage.{0} = {1}new {2}", node.Data.NodeName, node.Data.NodeType.IsArray ? "ArrayWith(" : string.Empty, node.Data.NodeType.ToString().Replace("[]", ""));
+                        _code.AppendLine(value);
+                        _code.AppendLine("{");
+                        continue;
+                    }
+                    else
+                    {
+                        _code.AppendLine($"requestMessage.{node.Data.NodeName} = new {node.Data.NodeType}");
+                        _code.AppendLine("{");
+                        continue;
+                    }
                 }
 
                 if (node.IsLeaf)
