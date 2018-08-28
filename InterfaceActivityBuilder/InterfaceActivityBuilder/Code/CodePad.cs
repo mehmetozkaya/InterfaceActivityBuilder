@@ -224,7 +224,11 @@ namespace InterfaceActivityBuilder.Code
             _code.Append("\t");
             _code.Append("\t");
             _code.Append("\t");
-            _code.AppendLine($"throw new NotImplementedException();");
+            _code.AppendLine($"var response = ParseResponse(channelResponse);");
+            _code.Append("\t");
+            _code.Append("\t");
+            _code.Append("\t");
+            _code.AppendLine($"Response.Set(Context, response);");
             _code.Append("\t");
             _code.Append("\t");
             _code.AppendLine("}");
