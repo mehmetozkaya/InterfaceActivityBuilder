@@ -116,7 +116,7 @@ This program only generated request part of mapping activities with proxy classe
 
 ## Authors
 
-* **Mehmet Ozkaya** - *Initial work* - [timetotrace](https://github.com/timetotrace)
+* **Mehmet Ozkaya** - *Initial work* - [mehmetozkaya](https://github.com/mehmetozkaya)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
