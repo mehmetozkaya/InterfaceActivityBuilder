@@ -9,19 +9,19 @@ This project intented for code generate with using command prompt like svcutil.e
 
 You can use exe file with cmd as below command in command prompt;
 
-```
+```csharp
 InterfaceActivityBuilder.exe 'path'
 ```
 
 Example usage of exe;
 
-```
+```csharp
 InterfaceActivityBuilder.exe C:\Users\ezozkme\Desktop\Book2.xlsx
 ```
 
 Or if excel file is in the same path of exe;
 
-```
+```csharp
 InterfaceActivityBuilder.exe Book2.xlsx
 ```
 
